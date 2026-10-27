@@ -1,0 +1,31 @@
+name: notes-security-lab
+services:
+  vulnerable-db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: notes_lab_vulnerable
+      POSTGRES_USER: notes_lab
+      POSTGRES_PASSWORD: LabOnly!2026
+    ports: ["127.0.0.1:55441:5432"]
+    volumes: ["vulnerable-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U notes_lab -d notes_lab_vulnerable"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  secured-db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: notes_lab_secured
+      POSTGRES_USER: notes_lab
+      POSTGRES_PASSWORD: LabOnly!2026
+    ports: ["127.0.0.1:55442:5432"]
+    volumes: ["secured-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U notes_lab -d notes_lab_secured"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  vulnerable-data:
+  secured-data:

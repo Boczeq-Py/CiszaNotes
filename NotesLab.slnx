@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Secured/">
+    <Project Path="Secured/NotesLab.Secured.csproj" />
+  </Folder>
+  <Folder Name="/Vulnerable/">
+    <Project Path="Vulnerable/NotesLab.Vulnerable.csproj" />
+  </Folder>
+</Solution>

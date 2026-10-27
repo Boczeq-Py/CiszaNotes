@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cisza LAB — Vulnerable</title>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/js/app.js"></script>
+  </head>
+  <body>
+    <div class="lab-banner vulnerable">
+      WARIANT PODATNY · HTTP · PORT 5181 · TYLKO LABORATORIUM
+      <span id="lab-xss-status">XSS: niewykonany</span>
+    </div>
+    <header>
+      <a class="brand" href="/" aria-label="Cisza, strona główna">
+        <span class="mark">
+          c.
+        </span>
+        cisza
+        <span class="brand-caption">
+          PRYWATNY NOTATNIK
+        </span>
+      </a>
+      <div id="account" hidden>
+        <span id="email"></span>
+        <button id="logout" class="subtle">
+          Wyloguj
+        </button>
+      </div>
+      <span id="local-badge">
+        ● &nbsp; Lokalnie. Po Twojemu.
+      </span>
+    </header>
+    <main>
+      <section id="login-view" class="login-layout" hidden>
+        <div class="intro">
+          <p class="eyebrow">
+            TWOJA PRZESTRZEŃ NA MYŚLI
+          </p>
+          <h1>
+            Zatrzymaj myśl.
+            <br>
+            Zrób miejsce
+            <br>
+            na kolejną.
+          </h1>
+          <p class="lead">
+            Pomysły, małe plany i słowa na później.
+            <br>
+            W jednym spokojnym miejscu, na Twoim komputerze.
+          </p>
+          <div class="intro-foot">
+            <span>
+              01 /
+            </span>
+            Tylko Ty i Twoje notatki.
+          </div>
+        </div>
+        <form id="login-form" class="login-card">
+          <p class="eyebrow">
+            DOBRZE CIĘ WIDZIEĆ
+          </p>
+          <h2>
+            Wejdź do swojego notatnika
+          </h2>
+          <p>
+            Zaloguj się, aby wrócić do swoich myśli.
+          </p>
+          <label for="login-email">
+            Adres e-mail
+          </label>
+          <input id="login-email" type="email" autocomplete="username" maxlength="256" required placeholder="twoj@email.pl">
+          <label for="login-password">
+            Hasło
+          </label>
+          <input id="login-password" type="password" autocomplete="current-password" maxlength="256" required placeholder="Wpisz swoje hasło">
+          <button type="submit" class="primary">
+            Otwórz notatnik
+            <span>
+              ↗
+            </span>
+          </button>
+          <p id="login-error" class="error" role="alert">
+          </p>
+          <div class="demo">
+            <strong>
+              Konta do wypróbowania
+            </strong>
+            <div>
+              anna@example.test · Anna!Notes2026
+            </div>
+            <div>
+              piotr@example.test · Piotr!Notes2026
+            </div>
+          </div>
+        </form>
+      </section>
+      <section id="notes-view" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">
+              MIEJSCE NA TO, CO WAŻNE
+            </p>
+            <h1>
+              Twoje notatki<span class="dot">.</span>
+            </h1>
+          </div>
+          <button id="new-note" class="primary">
+            ＋ Nowa notatka
+          </button>
+        </div>
+        <div class="workspace">
+          <aside>
+            <label class="search-label" for="search">
+              Szukaj w notatkach
+            </label>
+            <input id="search" type="search" maxlength="200" placeholder="Tytuł lub fragment treści…">
+            <div class="list-heading">
+              <span>
+                TWÓJ NOTATNIK
+              </span>
+              <span id="count">
+                0
+              </span>
+            </div>
+            <div id="note-list" aria-label="Lista notatek">
+            </div>
+          </aside>
+          <article class="editor">
+            <div id="empty-editor">
+              <span class="paper-icon">
+                ≋
+              </span>
+              <h2>
+                Każda myśl ma tu swoje miejsce.
+              </h2>
+              <p>
+                Wybierz notatkę z listy lub zapisz coś nowego.
+              </p>
+            </div>
+            <form id="note-form" hidden>
+              <div class="editor-top">
+                <span id="note-date">
+                  NOWA NOTATKA
+                </span>
+                <button type="button" id="delete-note" class="danger" hidden>
+                  Usuń notatkę
+                </button>
+              </div>
+              <label for="note-title" class="sr-only">
+                Tytuł
+              </label>
+              <input id="note-title" class="title-input" maxlength="160" required placeholder="Nadaj myśli tytuł…">
+              <label for="note-content" class="sr-only">
+                Treść notatki
+              </label>
+              <textarea id="note-content" maxlength="20000" placeholder="Od czego zaczniesz?">
+              </textarea>
+              <section class="lab-preview">
+                <h3>
+                  Podgląd zapisanej treści — test XSS
+                </h3>
+                <div id="note-preview">
+                </div>
+              </section>
+              <div class="editor-bottom">
+                <span id="char-count">
+                  0 / 20 000 znaków
+                </span>
+                <div>
+                  <span id="dirty-label"></span>
+                  <button type="submit" class="primary" id="save-note">
+                    Zapisz notatkę
+                  </button>
+                </div>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+      <p id="status" role="status" aria-live="polite">
+      </p>
+    </main>
+    <footer>
+      <span>
+        CISZA / małe miejsce na wielkie myśli
+      </span>
+      <span>
+        Twoje słowa zostają u Ciebie.
+      </span>
+    </footer>
+  </body>
+</html>

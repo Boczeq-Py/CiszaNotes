@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.idea/
+*.log
+*.pfx
+*.key
+*.pem
+**/.vs/
+*.user
+**/TestResults/
+evidence/build.txt
+evidence/reset.txt
+evidence/listeners.json

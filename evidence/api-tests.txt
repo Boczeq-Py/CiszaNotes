@@ -1,0 +1,67 @@
+PASS: Vulnerable : variant label and frontend
+PASS: Vulnerable : variant response header
+PASS: Vulnerable : authentication still required
+PASS: Vulnerable : Anna login
+PASS: Vulnerable : Piotr login
+PASS: Vulnerable : Secure cookie matches expected mode
+PASS: Vulnerable : HttpOnly cookie matches expected mode
+PASS: Vulnerable : SameSite=lax
+PASS: Vulnerable : CSP matches expected mode
+PASS: Vulnerable : reproducible three notes per user (reset first)
+PASS: Vulnerable : normal lists scoped to owner
+PASS: Vulnerable : Unicode and case insensitive normal search
+PASS: Vulnerable : SQLi request completed
+PASS: Vulnerable : SQLi returns notes of both users
+PASS: Vulnerable : IDOR read expected status
+PASS: Vulnerable : foreign private content actually disclosed
+PASS: Vulnerable : IDOR edit expected status
+PASS: Vulnerable : foreign edit outcome persisted
+PASS: Vulnerable : legitimate owner can edit
+PASS: Vulnerable : IDOR delete expected status
+PASS: Vulnerable : foreign delete actual result
+PASS: Vulnerable : missing CSRF expected status
+PASS: Vulnerable : invalid CSRF expected status
+PASS: Vulnerable : legitimate own create
+PASS: Vulnerable : legitimate own update
+PASS: Vulnerable : legitimate own read after update
+PASS: Vulnerable : legitimate own delete
+PASS: Vulnerable : legitimate deletion persisted
+PASS: Vulnerable : identical stored XSS fixture (execution tested in browser)
+PASS: Vulnerable : logout
+PASS: Vulnerable : logged-out session rejected
+PASS: Secured : variant label and frontend
+PASS: Secured : variant response header
+PASS: Secured : authentication still required
+PASS: Secured : Anna login
+PASS: Secured : Piotr login
+PASS: Secured : Secure cookie matches expected mode
+PASS: Secured : HttpOnly cookie matches expected mode
+PASS: Secured : SameSite=strict
+PASS: Secured : CSP matches expected mode
+PASS: Secured : reproducible three notes per user (reset first)
+PASS: Secured : normal lists scoped to owner
+PASS: Secured : Unicode and case insensitive normal search
+PASS: Secured : SQLi request completed
+PASS: Secured : SQLi is treated as literal text
+PASS: Secured : IDOR read expected status
+PASS: Secured : IDOR edit expected status
+PASS: Secured : foreign edit outcome persisted
+PASS: Secured : legitimate owner can edit
+PASS: Secured : IDOR delete expected status
+PASS: Secured : foreign delete actual result
+PASS: Secured : missing CSRF expected status
+PASS: Secured : invalid CSRF expected status
+PASS: Secured : legitimate own create
+PASS: Secured : legitimate own update
+PASS: Secured : legitimate own read after update
+PASS: Secured : legitimate own delete
+PASS: Secured : legitimate deletion persisted
+PASS: Secured : identical stored XSS fixture (execution tested in browser)
+PASS: Independent databases : vulnerable-only note absent in secured DB
+PASS: Secured : logout
+PASS: Secured : logged-out session rejected
+PASS: Both snapshots have identical IDs, creation dates, titles and content
+PASS: Secured HTTP entry redirects to HTTPS
+PASS: HTTP login does not create a session; redirected before authentication
+PASS: TLS handshake and OS certificate validation succeed (no certificate bypass)
+All 66 laboratory API assertions passed. Reset datasets after tests to restore original timestamps.

@@ -1,0 +1,12 @@
+{
+  "vulnerable": {
+    "imageCount": 1,
+    "marker": "XSS WYKONANY",
+    "previewText": ""
+  },
+  "secured": {
+    "imageCount": 0,
+    "marker": "XSS: niewykonany",
+    "previewText": "<img src=\"/lab-xss-missing\" onerror=\"document.getElementById('lab-xss-status').textContent='XSS WYKONANY'\">"
+  }
+}
